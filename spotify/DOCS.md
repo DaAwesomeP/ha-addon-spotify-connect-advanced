@@ -96,12 +96,12 @@ Additional CLI options. See the [LibreSpot documentation](https://github.com/lib
 
 Note that adjusting settings related to PulseAudio/ALSA or other sound device settings may cause issues. Also note that the addon already makes use of the following options, and adjusting them may causes issues:
 
- - `bitrate`
- - `name`
- - `username` (if configured)
- - `password` (if configured)
- - `disable-audio-cache`
- - `verbose` (if in debug mode)
+- `bitrate`
+- `name`
+- `username` (if configured)
+- `password` (if configured)
+- `disable-audio-cache`
+- `verbose` (if in debug mode)
 
 ## Known issues and limitations
 
