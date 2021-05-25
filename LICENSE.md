@@ -1,6 +1,7 @@
 # MIT License
 
 Copyright (c) 2021-present Perry Naseck
+
 Copyright (c) 2018-2021 Franck Nijhof (from fork)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

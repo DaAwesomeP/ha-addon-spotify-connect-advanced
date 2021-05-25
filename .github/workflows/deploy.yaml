@@ -132,14 +132,14 @@ jobs:
           load: true
           # yamllint disable rule:line-length
           tags: |
-            ghcr.io/hassio-addons/${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.environment }}
-            ghcr.io/hassio-addons/${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}
+            ghcr.io/DaAwesomeP/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.environment }}
+            ghcr.io/DaAwesomeP/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}
           # yamllint enable rule:line-length
           context: ${{ needs.information.outputs.target }}
           file: ${{ needs.information.outputs.target }}/Dockerfile
           cache-from: |
             type=local,src=/tmp/.docker-cache
-            ghcr.io/hassio-addons/${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:edge
+            ghcr.io/DaAwesomeP/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:edge
           cache-to: type=local,mode=max,dest=/tmp/.docker-cache
           platforms: ${{ steps.flags.outputs.platform }}
           build-args: |
@@ -151,104 +151,105 @@ jobs:
             BUILD_REF=${{ github.sha }}
             BUILD_REPOSITORY=${{ github.repository }}
             BUILD_VERSION=${{ needs.information.outputs.version }}
-      - name: 🔏 Notarize
-        # yamllint disable rule:line-length
-        run: |
-          if vcn authenticate \
-            --output json \
-            "docker://ghcr.io/hassio-addons/${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}" \
-            | jq \
-              --exit-status \
-              '.verification.status != 0';
-          then
-            vcn login
-            vcn notarize \
-              --public \
-              "docker://ghcr.io/hassio-addons/${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}"
-          fi
-        env:
-          VCN_USER: ${{ secrets.VCN_USER }}
-          VCN_PASSWORD: ${{ secrets.VCN_PASSWORD }}
-          VCN_NOTARIZATION_PASSWORD: ${{ secrets.VCN_NOTARIZATION_PASSWORD }}
-          VCN_OTP_EMPTY: true
+      # - name: 🔏 Notarize
+      #   # yamllint disable rule:line-length
+      #   run: |
+      #     if vcn authenticate \
+      #       --output json \
+      #       "docker://ghcr.io/DaAwesomeP/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}" \
+      #       | jq \
+      #         --exit-status \
+      #         '.verification.status != 0';
+      #     then
+      #       vcn login
+      #       vcn notarize \
+      #         --public \
+      #         "docker://ghcr.io/DaAwesomeP/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}"
+      #     fi
+      #   env:
+      #     VCN_USER: ${{ secrets.VCN_USER }}
+      #     VCN_PASSWORD: ${{ secrets.VCN_PASSWORD }}
+      #     VCN_NOTARIZATION_PASSWORD: ${{ secrets.VCN_NOTARIZATION_PASSWORD }}
+      #     VCN_OTP_EMPTY: true
       - name: 🚀 Push
         # yamllint disable rule:line-length
         run: |
           docker push \
-            "ghcr.io/hassio-addons/${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.environment }}"
+            "ghcr.io/DaAwesomeP/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.environment }}"
           docker push \
-            "ghcr.io/hassio-addons/${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}"
-
-  publish-edge:
-    name: 📢 Publish to edge repository
-    if: needs.information.outputs.environment == 'edge'
-    needs:
-      - information
-      - deploy
-    environment:
-      name: ${{ needs.information.outputs.environment }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🚀 Dispatch repository updater update signal
-        uses: peter-evans/repository-dispatch@v1.1.3
-        with:
-          token: ${{ secrets.DISPATCH_TOKEN }}
-          repository: hassio-addons/repository-edge
-          event-type: update
-          client-payload: >
-            {
-              "addon": "${{ needs.information.outputs.slug }}",
-              "name": "${{ needs.information.outputs.name }}",
-              "repository": "${{ github.repository }}",
-              "version": "${{ needs.information.outputs.version }}"
+            "ghcr.io/DaAwesomeP/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}"
             }
 
-  publish-beta:
-    name: 📢 Publish to beta repository
-    if: |
-      needs.information.outputs.environment == 'beta' ||
-      needs.information.outputs.environment == 'stable'
-    needs:
-      - information
-      - deploy
-    environment:
-      name: ${{ needs.information.outputs.environment }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🚀 Dispatch repository updater update signal
-        uses: peter-evans/repository-dispatch@v1.1.3
-        with:
-          token: ${{ secrets.DISPATCH_TOKEN }}
-          repository: hassio-addons/repository-beta
-          event-type: update
-          client-payload: >
-            {
-              "addon": "${{ needs.information.outputs.slug }}",
-              "name": "${{ needs.information.outputs.name }}",
-              "repository": "${{ github.repository }}",
-              "version": "${{ github.event.release.tag_name }}"
-            }
+  # publish-edge:
+  #   name: 📢 Publish to edge repository
+  #   if: needs.information.outputs.environment == 'edge'
+  #   needs:
+  #     - information
+  #     - deploy
+  #   environment:
+  #     name: ${{ needs.information.outputs.environment }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🚀 Dispatch repository updater update signal
+  #       uses: peter-evans/repository-dispatch@v1.1.3
+  #       with:
+  #         token: ${{ secrets.DISPATCH_TOKEN }}
+  #         repository: hassio-addons/repository-edge
+  #         event-type: update
+  #         client-payload: >
+  #           {
+  #             "addon": "${{ needs.information.outputs.slug }}",
+  #             "name": "${{ needs.information.outputs.name }}",
+  #             "repository": "${{ github.repository }}",
+  #             "version": "${{ needs.information.outputs.version }}"
+  #           }
 
-  publish-stable:
-    name: 📢 Publish to stable repository
-    if: needs.information.outputs.environment == 'stable'
-    needs:
-      - information
-      - deploy
-    environment:
-      name: ${{ needs.information.outputs.environment }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🚀 Dispatch repository updater update signal
-        uses: peter-evans/repository-dispatch@v1.1.3
-        with:
-          token: ${{ secrets.DISPATCH_TOKEN }}
-          repository: hassio-addons/repository
-          event-type: update
-          client-payload: >
-            {
-              "addon": "${{ needs.information.outputs.slug }}",
-              "name": "${{ needs.information.outputs.name }}",
-              "repository": "${{ github.repository }}",
-              "version": "${{ github.event.release.tag_name }}"
-            }
+  # publish-beta:
+  #   name: 📢 Publish to beta repository
+  #   if: |
+  #     needs.information.outputs.environment == 'beta' ||
+  #     needs.information.outputs.environment == 'stable'
+  #   needs:
+  #     - information
+  #     - deploy
+  #   environment:
+  #     name: ${{ needs.information.outputs.environment }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🚀 Dispatch repository updater update signal
+  #       uses: peter-evans/repository-dispatch@v1.1.3
+  #       with:
+  #         token: ${{ secrets.DISPATCH_TOKEN }}
+  #         repository: hassio-addons/repository-beta
+  #         event-type: update
+  #         client-payload: >
+  #           {
+  #             "addon": "${{ needs.information.outputs.slug }}",
+  #             "name": "${{ needs.information.outputs.name }}",
+  #             "repository": "${{ github.repository }}",
+  #             "version": "${{ github.event.release.tag_name }}"
+  #           }
+
+  # publish-stable:
+  #   name: 📢 Publish to stable repository
+  #   if: needs.information.outputs.environment == 'stable'
+  #   needs:
+  #     - information
+  #     - deploy
+  #   environment:
+  #     name: ${{ needs.information.outputs.environment }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🚀 Dispatch repository updater update signal
+  #       uses: peter-evans/repository-dispatch@v1.1.3
+  #       with:
+  #         token: ${{ secrets.DISPATCH_TOKEN }}
+  #         repository: DaAwesomeP/ha-addons
+  #         event-type: update
+  #         client-payload: >
+  #           {
+  #             "addon": "${{ needs.information.outputs.slug }}",
+  #             "name": "${{ needs.information.outputs.name }}",
+  #             "repository": "${{ github.repository }}",
+  #             "version": "${{ github.event.release.tag_name }}"
+  #           }

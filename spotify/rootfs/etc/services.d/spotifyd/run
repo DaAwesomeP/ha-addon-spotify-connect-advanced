@@ -9,7 +9,7 @@ declare name
 declare password
 declare username
 
-bashio::log.info 'Starting the Spotify daemon...'
+bashio::log.info 'Starting the Spotify Advanced daemon...'
 
 # Bitrate
 options+=(--bitrate $(bashio::config 'bitrate'))
