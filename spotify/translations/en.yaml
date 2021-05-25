@@ -23,3 +23,7 @@ configuration:
     name: Spotify password
     description: >-
       The password to log into your Spotify Premium account with.
+  additional_cli_options:
+    name: Additional CLI Options
+    description: >-
+      Additional CLI options for LibreSpot. See the LibreSpot documentation.

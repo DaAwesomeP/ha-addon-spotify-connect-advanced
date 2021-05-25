@@ -1,6 +1,6 @@
 #!/usr/bin/execlineb -S0
 # ==============================================================================
-# Home Assistant Community Add-on: Spotify Connect
+# DaAwesomeP Home Assistant Add-on: Spotify Connect Advanced
 # Take down the S6 supervision tree when spotifyd fails
 # ==============================================================================
 if -n { s6-test $# -ne 0 }

@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Spotify Connect Advanced
+# DaAwesomeP Home Assistant Add-on: Spotify Connect Advanced
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
@@ -14,7 +14,7 @@
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
-Play Spotify music on your Home Assistant device.
+Play Spotify music on your Home Assistant device (with more options and events).
 
 ![The Spotify Connect Advacned add-on](images/screenshot.png)
 
@@ -35,7 +35,7 @@ have to do is hook up your sound system to the Pi and start booming!
 
 ## Support
 
-This is an unofficial addon. Please [open an issue here][issue] GitHub.
+This is an unofficial addon. Please [open an issue here][issue] on GitHub.
 
 ## Contributing
 
@@ -58,7 +58,8 @@ check [the contributor's page][contributors].
 
 MIT License
 
-Copyright (c) 2018-2021 Franck Nijhof
+Copyright (c) 2021-present Perry Naseck
+Copyright (c) 2018-2021 Franck Nijhof (from fork)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

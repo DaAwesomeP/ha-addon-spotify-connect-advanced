@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-frenck@frenck.dev.
+[https://perrynaseck.com/contact/](https://perrynaseck.com/contact/).
 
 All complaints will be reviewed and investigated promptly and fairly.
 

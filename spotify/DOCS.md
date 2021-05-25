@@ -1,4 +1,6 @@
-# Home Assistant Community Add-on: Spotify Connect
+# DaAwesomeP Home Assistant Add-on: Spotify Connect Advanced
+
+This is a fork of [hassio-addons/addon-spotify-connect](https://github.com/hassio-addons/addon-spotify-connect). It adds a few more features, like all of the LibreSpot options and events in Home Assistant.
 
 The Home Assistant Spotify Connect add-on allows you to use your device,
 running Home Assistant, to play your Spotify music. This add-on uses the
@@ -68,7 +70,7 @@ the official Spotify clients.
 The bitrate Spotify should use. The higher, the better the sound quality,
 however, the add-on consumes more data.
 
-Valid values: `96`, `160` (default) or `320`.
+Valid values: `96`, `160` or `320` (default).
 
 ### Option: `username`
 
@@ -83,6 +85,23 @@ to disallow guests on your network to use the add-on.
 ### Option: `password`
 
 The password you use to login to your Spotify Premium account.
+
+### Option: `additional_cli_options`
+
+Additional CLI options. See the [LibreSpot documentation](https://github.com/librespot-org/librespot/wiki/Options). Options should include the starting two dashes (`--`) and be separated by spaces. For example:
+
+```
+--enable-volume-normalisation --volume-ctrl fixed
+```
+
+Note that adjusting settings related to PulseAudio/ALSA or other sound device settings may cause issues. Also note that the addon already makes use of the following options, and adjusting them may causes issues:
+
+ - `bitrate`
+ - `name`
+ - `username` (if configured)
+ - `password` (if configured)
+ - `disable-audio-cache`
+ - `verbose` (if in debug mode)
 
 ## Known issues and limitations
 
@@ -103,22 +122,11 @@ based on the following:
 
 ## Support
 
-Got questions?
-
-You have several options to get them answered:
-
-- The [Home Assistant Community Add-ons Discord chat server][discord] for add-on
-  support and feature requests.
-- The [Home Assistant Discord chat server][discord-ha] for general Home
-  Assistant discussions and questions.
-- The Home Assistant [Community Forum][forum].
-- Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
-
-You could also [open an issue here][issue] GitHub.
+This is an unofficial addon. Please [open an issue here][issue] on GitHub.
 
 ## Authors & contributors
 
-The original setup of this repository is by [Franck Nijhof][frenck].
+This is Perry Naseck (DaAwesomeP)'s fork of the [community addon](https://github.com/hassio-addons/addon-spotify-connect).
 
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
@@ -127,7 +135,8 @@ check [the contributor's page][contributors].
 
 MIT License
 
-Copyright (c) 2018-2021 Franck Nijhof
+Copyright (c) 2021-present Perry Naseck
+Copyright (c) 2018-2021 Franck Nijhof (from fork)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -147,12 +156,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[contributors]: https://github.com/hassio-addons/addon-spotify-connect/graphs/contributors
-[discord-ha]: https://discord.gg/c5DvZ4e
-[discord]: https://discord.me/hassioaddons
-[forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-spotify-connect/61210?u=frenck
+[contributors]: https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced/graphs/contributors
 [frenck]: https://github.com/frenck
-[issue]: https://github.com/hassio-addons/addon-spotify-connect/issues
-[reddit]: https://reddit.com/r/homeassistant
-[releases]: https://github.com/hassio-addons/addon-spotify-connect/releases
+[issue]: https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced/issues
+[releases]: https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced/releases
 [semver]: http://semver.org/spec/v2.0.0.htm

@@ -1,21 +1,22 @@
 {
-  "name": "Spotify Connect",
+  "name": "Spotify Connect Advanced",
   "version": "dev",
-  "slug": "spotify",
-  "description": "Play Spotify music on your Home Assistant device",
-  "url": "https://github.com/hassio-addons/addon-spotify-connect",
+  "slug": "spotify-advanced",
+  "description": "Play Spotify music on your Home Assistant device (with more options and events)",
+  "url": "https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced",
   "arch": ["aarch64", "amd64", "armv7", "i386"],
   "host_network": true,
   "audio": true,
   "options": {
-    "name": "Home Assistant",
-    "bitrate": 160
+    "name": "HomeAssistant",
+    "bitrate": 320
   },
   "schema": {
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
     "name": "str",
     "bitrate": "list(96|160|320)",
     "username": "str?",
-    "password": "password?"
+    "password": "password?",
+    "additional_cli_options": "str?"
   }
 }
