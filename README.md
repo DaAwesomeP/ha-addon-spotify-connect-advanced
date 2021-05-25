@@ -20,7 +20,9 @@ Play Spotify music on your Home Assistant device (with more options and events).
 
 ## About
 
-This is a fork of [hassio-addons/addon-spotify-connect](https://github.com/hassio-addons/addon-spotify-connect). It adds a few more features, like all of the LibreSpot options and events in Home Assistant.
+This is a fork of [hassio-addons/addon-spotify-connect](original). It adds
+a few more features, like all of the LibreSpot options and events in Home
+Assistant.
 
 The Home Assistant Spotify Connect add-on allows you to use your device,
 running Home Assistant, to play your Spotify music. This add-on uses the
@@ -49,7 +51,7 @@ Thank you for being involved! :heart_eyes:
 
 ## Authors & contributors
 
-This is Perry Naseck (DaAwesomeP)'s fork of the [community addon](https://github.com/hassio-addons/addon-spotify-connect).
+This is Perry Naseck (DaAwesomeP)'s fork of the [community addon](original).
 
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
@@ -98,3 +100,4 @@ SOFTWARE.
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 [releases-shield]: https://img.shields.io/github/release/DaAwesomeP/ha-addon-spotify-connect-advanced.svg
 [releases]: https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced/releases
+[original]: https://github.com/hassio-addons/addon-spotify-connect

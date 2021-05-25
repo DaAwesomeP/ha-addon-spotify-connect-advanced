@@ -1,6 +1,8 @@
 # DaAwesomeP Home Assistant Add-on: Spotify Connect Advanced
 
-This is a fork of [hassio-addons/addon-spotify-connect](https://github.com/hassio-addons/addon-spotify-connect). It adds a few more features, like all of the LibreSpot options and events in Home Assistant.
+This is a fork of [hassio-addons/addon-spotify-connect](original). It adds
+a few more features, like all of the LibreSpot options and events in Home
+Assistant.
 
 The Home Assistant Spotify Connect add-on allows you to use your device,
 running Home Assistant, to play your Spotify music. This add-on uses the
@@ -88,13 +90,17 @@ The password you use to login to your Spotify Premium account.
 
 ### Option: `additional_cli_options`
 
-Additional CLI options. See the [LibreSpot documentation](https://github.com/librespot-org/librespot/wiki/Options). Options should include the starting two dashes (`--`) and be separated by spaces. For example:
+Additional CLI options. See the [LibreSpot documentation](librespot-docs).
+Options should include the starting two dashes (`--`) and be separated by
+spaces. For example:
 
 ```
 --enable-volume-normalisation --volume-ctrl fixed
 ```
 
-Note that adjusting settings related to PulseAudio/ALSA or other sound device settings may cause issues. Also note that the addon already makes use of the following options, and adjusting them may causes issues:
+Note that adjusting settings related to PulseAudio/ALSA or other sound
+device settings may cause issues. Also note that the addon already makes
+use of the following options, and adjusting them may causes issues:
 
 - `bitrate`
 - `name`
@@ -126,7 +132,7 @@ This is an unofficial addon. Please [open an issue here][issue] on GitHub.
 
 ## Authors & contributors
 
-This is Perry Naseck (DaAwesomeP)'s fork of the [community addon](https://github.com/hassio-addons/addon-spotify-connect).
+This is Perry Naseck (DaAwesomeP)'s fork of the [community addon](original).
 
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
@@ -162,3 +168,5 @@ SOFTWARE.
 [issue]: https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced/issues
 [releases]: https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced/releases
 [semver]: http://semver.org/spec/v2.0.0.htm
+[original]: https://github.com/hassio-addons/addon-spotify-connect
+[librespot-docs]: https://github.com/librespot-org/librespot/wiki/Options
