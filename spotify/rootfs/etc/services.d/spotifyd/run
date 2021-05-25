@@ -42,7 +42,7 @@ options+=(--onevent /usr/bin/onevent)
 
 if bashio::config.has_value 'additional_cli_options'; then
     additional_cli_options=$(bashio::config 'additional_cli_options')
-    options+=("${additional_cli_options}")
+    options+=(${additional_cli_options})
 fi
 
 # Run librespot

@@ -90,7 +90,7 @@ The password you use to login to your Spotify Premium account.
 
 ### Option: `additional_cli_options`
 
-Additional CLI options. See the [LibreSpot documentation](librespot-docs).
+Additional CLI options. See the [LibreSpot documentation](librespotdocs).
 Options should include the starting two dashes (`--`) and be separated by
 spaces. For example:
 
@@ -169,4 +169,4 @@ SOFTWARE.
 [releases]: https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced/releases
 [semver]: http://semver.org/spec/v2.0.0.htm
 [original]: https://github.com/hassio-addons/addon-spotify-connect
-[librespot-docs]: https://github.com/librespot-org/librespot/wiki/Options
+[librespotdocs]: https://github.com/librespot-org/librespot/wiki/Options
