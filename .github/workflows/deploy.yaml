@@ -178,7 +178,6 @@ jobs:
             "ghcr.io/daawesomep/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.environment }}"
           docker push \
             "ghcr.io/daawesomep/ha-addon-${{ needs.information.outputs.slug }}/${{ matrix.architecture }}:${{ needs.information.outputs.version }}"
-            }
 
   # publish-edge:
   #   name: 📢 Publish to edge repository
