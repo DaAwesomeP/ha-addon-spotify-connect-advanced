@@ -109,6 +109,12 @@ use of the following options, and adjusting them may causes issues:
 - `disable-audio-cache`
 - `verbose` (if in debug mode)
 
+### Event: `spotify_advanced.event`
+
+When LibreSpot issues an event, this event will be sent to Home Assistant
+with attributes `player_event`, `old_track_id`, `track_id`, `duration_ms`,
+`position_ms`, `volume`, and `sink_status`.
+
 ## Known issues and limitations
 
 - This add-on requires a Spotify Premium account.
