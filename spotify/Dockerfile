@@ -33,8 +33,7 @@ RUN \
         /tmp/* \
         ~/.cargo \
         /usr/.crates.toml \
-        /usr/.crates2.json \
-    && chmod 755 /usr/bin/onevent
+        /usr/.crates2.json
 
 # Copy root filesystem
 COPY rootfs /

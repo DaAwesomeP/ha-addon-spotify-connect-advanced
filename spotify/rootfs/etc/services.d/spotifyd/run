@@ -45,5 +45,8 @@ if bashio::config.has_value 'additional_cli_options'; then
     options+=(${additional_cli_options})
 fi
 
+# temp fix permission
+chmod 755 /usr/bin/onevent
+
 # Run librespot
 exec librespot "${options[@]}"
