@@ -6,6 +6,7 @@
   "url": "https://github.com/DaAwesomeP/ha-addon-spotify-connect-advanced",
   "arch": ["aarch64", "amd64", "armv7", "i386"],
   "host_network": true,
+  "homeassistant_api": true,
   "audio": true,
   "options": {
     "name": "HomeAssistant",
